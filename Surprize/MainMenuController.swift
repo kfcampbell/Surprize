@@ -15,8 +15,7 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
 
     let constants = Constants()
     let wallpaperHelper = WallpaperHelper()
-    let baseApiPath = "https://source.unsplash.com/"
-    var apiPath = ""
+    let apiHelper = ApiHelper()
     var defaults = UserDefaults.standard
     
     override func awakeFromNib() {
@@ -30,13 +29,23 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
     }
     
     @IBAction func updateClicked(_ sender: NSMenuItem) {
-        updateDefaults()
-        makeApiRequest(urlPath: apiPath)
+        let apiPath = apiHelper.updateDefaultsAndReturnApiPath()
+        var imageData: Data? = nil
+        if apiPath != "" {
+            imageData = apiHelper.getImageData(urlPath: apiPath)
+        } else {
+            alertUserProvideNoActions(header: "Preferences error", message: "Couldn't construct the API call you wanted", buttonTitle: "I guess I'll go fix it")
+        }
+        
+        if imageData != nil {
+            let savedFilePath = self.wallpaperHelper.saveImage(data: imageData!)
+            self.wallpaperHelper.changeWallpaper(path: savedFilePath)
+        } else {
+            self.alertUserProvideNoActions(header: "Error Downloading Image", message: "What did you do wrong?", buttonTitle: "I have no idea...")
+        }
     }
     
     @IBAction func humzahClicked(_ sender: NSMenuItem){
-        // todo: this should change wallpaper to a picture of Humzah
-        //let humzah = NSImage(contentsOfFile: "humzah_smiling.png")
         let humzahPath = Bundle.main.urlForImageResource("humzah_smiling.png")
         self.wallpaperHelper.changeWallpaper(path: (humzahPath?.relativePath)!)
     }
@@ -48,34 +57,15 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
     @IBAction func quitClicked(_ sender: NSMenuItem) {
         NSApplication.shared().terminate(self)
     }
-        
-    func updateDefaults() {
-        let defaults = UserDefaults.standard
-        
-        if let screenWidth = defaults.value(forKey: constants.screenWidth) as? String {
-            if let screenHeight = defaults.value(forKey: constants.screenHeight) as? String {
-                if let searchqueries = defaults.value(forKey: constants.searchQueries) as? String {
-                    apiPath = baseApiPath + screenWidth + "x" + screenHeight + "/?" + searchqueries
-                }
-            }
-        } else {
-            apiPath = baseApiPath + "2880x1800/?"
-        }
-    }
     
-    func makeApiRequest(urlPath: String) {
-        let url = URL(string: urlPath)
-        
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            DispatchQueue.main.async {
-                // todo: some sort of error handling here
-                let savedFilePath = self.wallpaperHelper.saveImage(data: data!)
-                self.wallpaperHelper.changeWallpaper(path: savedFilePath)
-            }
-        }
+    func alertUserProvideNoActions(header: String, message: String, buttonTitle: String) {
+        let popUp = NSAlert()
+        popUp.messageText = header
+        popUp.informativeText = message
+        popUp.alertStyle = NSAlertStyle.critical
+        popUp.addButton(withTitle: buttonTitle)
+        popUp.runModal()
     }
-    
 
     func preferencesDidUpdate() {
         // do stuff when the settings are updated. 
