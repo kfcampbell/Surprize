@@ -56,8 +56,8 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         defaults.setValue(saveImagesToDiskCheckBox.state, forKey: constants.saveImagesToDisk)
         defaults.setValue(imageSaveLocationTextField.stringValue, forKey: constants.imageSaveLocation)
         defaults.setValue(searchQueriesTextField.stringValue, forKey: constants.searchQueries)
-        defaults.setValue(Int(screenWidthTextField.stringValue), forKey: constants.screenWidth)
-        defaults.setValue(Int(screenHeightTextField.stringValue), forKey: constants.screenHeight)
+        defaults.setValue(screenWidthTextField.stringValue, forKey: constants.screenWidth)
+        defaults.setValue(screenHeightTextField.stringValue, forKey: constants.screenHeight)
         
         defaults.setValue(changeFrequencySlider.integerValue, forKey: constants.changeFrequency)
         
