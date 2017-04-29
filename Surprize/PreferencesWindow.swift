@@ -28,6 +28,27 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     override var windowNibName : String! {
         return "PreferencesWindow"
     }
+
+    @IBAction func selectSavedImageLocationButtonClicked(_ sender: NSButton) {
+        
+        let chooseFolderDialog = NSOpenPanel()
+        chooseFolderDialog.title = "Choose a folder"
+        chooseFolderDialog.showsResizeIndicator = true
+        chooseFolderDialog.showsHiddenFiles = false
+        chooseFolderDialog.canChooseDirectories = true
+        chooseFolderDialog.canCreateDirectories = true
+        chooseFolderDialog.allowsMultipleSelection = false
+        chooseFolderDialog.allowedFileTypes = [""]
+        
+        if (chooseFolderDialog.runModal() == NSModalResponseOK) {
+            let chosenFilePath = chooseFolderDialog.url
+            
+            if (chosenFilePath != nil) {
+                let path = chosenFilePath!.path
+                imageSaveLocationTextField.stringValue = path
+            }
+        } // no action if the user clicked cancel
+    }
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -46,8 +67,6 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         NSApp.activate(ignoringOtherApps: true)
     }
     
-    @IBAction func selectSaveImageLocationButtonClicked(_ sender: NSButton) {
-    }
     
     func windowWillClose(_ notification: Notification) {
         // save relevant data to user defaults here

@@ -148,7 +148,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="selectSaveImageLocationButtonClicked:" target="-2" id="3fA-Nk-68V"/>
+                            <action selector="selectSavedImageLocationButtonClicked:" target="-2" id="nJQ-9L-Pk5"/>
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-SP-YlX">
