@@ -8,8 +8,11 @@
 
 import Cocoa
 
-class MainMenuController: NSObject {
+class MainMenuController: NSObject, PreferencesWindowDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
+    var preferencesWindow: PreferencesWindow!
+
+    
     let apiPath = "https://source.unsplash.com/2880x1800/?nature,water"
     
     @IBAction func updateClicked(_ sender: NSMenuItem) {
@@ -17,7 +20,7 @@ class MainMenuController: NSObject {
     }
     
     @IBAction func preferencesClicked(_ sender: NSMenuItem) {
-        
+        preferencesWindow.showWindow(nil)
     }
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {
@@ -69,6 +72,9 @@ class MainMenuController: NSObject {
         formatter.dateFormat = "yyyy-MM-dd-hh-mm-ss"
         return (formatter.string(from: date) + ".png")
     }
+    func preferencesDidUpdate() {
+        // do stuff when the settings are updated. 
+    }
 
     
     override func awakeFromNib() {
@@ -76,5 +82,8 @@ class MainMenuController: NSObject {
         icon?.isTemplate = true // best for dark mode
         statusItem.image = icon
         statusItem.menu = statusMenu
+        
+        preferencesWindow = PreferencesWindow()
+        preferencesWindow.delegate = self
     }
 }

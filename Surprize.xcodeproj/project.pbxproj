@@ -13,6 +13,8 @@
 		0323FCA81EAC1C98004F45E5 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323FCA71EAC1C98004F45E5 /* MainMenuController.swift */; };
 		0323FCC71EB433A1004F45E5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323FCC61EB433A1004F45E5 /* Enums.swift */; };
 		0323FCC91EB435CE004F45E5 /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0323FCC81EB435CE004F45E5 /* ApiHelper.swift */; };
+		038C8EC51EB44B2400ADDC50 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038C8EC31EB44B2400ADDC50 /* PreferencesWindow.swift */; };
+		038C8EC61EB44B2400ADDC50 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038C8EC41EB44B2400ADDC50 /* PreferencesWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0323FCA71EAC1C98004F45E5 /* MainMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MainMenuController.swift; sourceTree = "<group>"; };
 		0323FCC61EB433A1004F45E5 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		0323FCC81EB435CE004F45E5 /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
+		038C8EC31EB44B2400ADDC50 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
+		038C8EC41EB44B2400ADDC50 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				0323FC9A1EAC1C2C004F45E5 /* AppDelegate.swift */,
 				0323FC9C1EAC1C2C004F45E5 /* Assets.xcassets */,
 				0323FC9E1EAC1C2C004F45E5 /* MainMenu.xib */,
+				038C8EC31EB44B2400ADDC50 /* PreferencesWindow.swift */,
+				038C8EC41EB44B2400ADDC50 /* PreferencesWindow.xib */,
 				0323FCA71EAC1C98004F45E5 /* MainMenuController.swift */,
 				0323FCA11EAC1C2C004F45E5 /* Info.plist */,
 				0323FCC61EB433A1004F45E5 /* Enums.swift */,
@@ -127,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0323FC9D1EAC1C2C004F45E5 /* Assets.xcassets in Resources */,
+				038C8EC61EB44B2400ADDC50 /* PreferencesWindow.xib in Resources */,
 				0323FCA01EAC1C2C004F45E5 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0323FCC91EB435CE004F45E5 /* ApiHelper.swift in Sources */,
+				038C8EC51EB44B2400ADDC50 /* PreferencesWindow.swift in Sources */,
 				0323FC9B1EAC1C2C004F45E5 /* AppDelegate.swift in Sources */,
 				0323FCC71EB433A1004F45E5 /* Enums.swift in Sources */,
 				0323FCA81EAC1C98004F45E5 /* MainMenuController.swift in Sources */,
