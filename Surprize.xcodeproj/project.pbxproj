@@ -16,6 +16,8 @@
 		038C8EC51EB44B2400ADDC50 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038C8EC31EB44B2400ADDC50 /* PreferencesWindow.swift */; };
 		038C8EC61EB44B2400ADDC50 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 038C8EC41EB44B2400ADDC50 /* PreferencesWindow.xib */; };
 		038C8ECA1EB4542A00ADDC50 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038C8EC91EB4542A00ADDC50 /* Constants.swift */; };
+		038C8ECC1EB4E9E800ADDC50 /* humzah_smiling.png in Resources */ = {isa = PBXBuildFile; fileRef = 038C8ECB1EB4E9E800ADDC50 /* humzah_smiling.png */; };
+		038C8ECF1EB4EA7A00ADDC50 /* WallpaperHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038C8ECE1EB4EA7A00ADDC50 /* WallpaperHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		038C8EC31EB44B2400ADDC50 /* PreferencesWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		038C8EC41EB44B2400ADDC50 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		038C8EC91EB4542A00ADDC50 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		038C8ECB1EB4E9E800ADDC50 /* humzah_smiling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humzah_smiling.png; sourceTree = "<group>"; };
+		038C8ECE1EB4EA7A00ADDC50 /* WallpaperHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallpaperHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +66,28 @@
 		0323FC991EAC1C2C004F45E5 /* Surprize */ = {
 			isa = PBXGroup;
 			children = (
+				038C8ECD1EB4EA6300ADDC50 /* Helpers */,
 				0323FC9A1EAC1C2C004F45E5 /* AppDelegate.swift */,
 				0323FC9C1EAC1C2C004F45E5 /* Assets.xcassets */,
+				038C8ECB1EB4E9E800ADDC50 /* humzah_smiling.png */,
 				0323FC9E1EAC1C2C004F45E5 /* MainMenu.xib */,
 				038C8EC31EB44B2400ADDC50 /* PreferencesWindow.swift */,
 				038C8EC41EB44B2400ADDC50 /* PreferencesWindow.xib */,
 				0323FCA71EAC1C98004F45E5 /* MainMenuController.swift */,
 				0323FCA11EAC1C2C004F45E5 /* Info.plist */,
 				0323FCC61EB433A1004F45E5 /* Enums.swift */,
-				0323FCC81EB435CE004F45E5 /* ApiHelper.swift */,
 				038C8EC91EB4542A00ADDC50 /* Constants.swift */,
 			);
 			path = Surprize;
+			sourceTree = "<group>";
+		};
+		038C8ECD1EB4EA6300ADDC50 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0323FCC81EB435CE004F45E5 /* ApiHelper.swift */,
+				038C8ECE1EB4EA7A00ADDC50 /* WallpaperHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				038C8ECC1EB4E9E800ADDC50 /* humzah_smiling.png in Resources */,
 				0323FC9D1EAC1C2C004F45E5 /* Assets.xcassets in Resources */,
 				038C8EC61EB44B2400ADDC50 /* PreferencesWindow.xib in Resources */,
 				0323FCA01EAC1C2C004F45E5 /* MainMenu.xib in Resources */,
@@ -153,6 +168,7 @@
 				0323FC9B1EAC1C2C004F45E5 /* AppDelegate.swift in Sources */,
 				0323FCC71EB433A1004F45E5 /* Enums.swift in Sources */,
 				0323FCA81EAC1C98004F45E5 /* MainMenuController.swift in Sources */,
+				038C8ECF1EB4EA7A00ADDC50 /* WallpaperHelper.swift in Sources */,
 				038C8ECA1EB4542A00ADDC50 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

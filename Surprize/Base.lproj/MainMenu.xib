@@ -27,6 +27,12 @@
                         <action selector="updateClicked:" target="rTD-Qy-BvI" id="ltC-kT-fAV"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Yeyeah!" id="mrq-24-OqY">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="humzahClicked:" target="rTD-Qy-BvI" id="UcU-fJ-WL5"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="lDR-LQ-6Ki"/>
                 <menuItem title="Preferences" id="I8o-Q1-rb0">
                     <modifierMask key="keyEquivalentModifierMask"/>
