@@ -10,6 +10,7 @@ import Foundation
 import Cocoa
 
 class WallpaperHelper {
+    let constants = Constants()
     
     private func getUniqueImageFilename() -> String {
         let date = Date()
@@ -24,15 +25,23 @@ class WallpaperHelper {
     func saveImage(data: Data) -> String {
         
         let image = NSImage(data: data)
+        let defaults = UserDefaults.standard
         
-        let desktopURL = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first!
+        var chosenFolderPath = defaults.value(forKey: constants.imageSaveLocation) as? String ?? ""
+        var chosenFolderUrl: NSURL
+        
+        // default to desktop if there's no chosen folder
+        if(chosenFolderPath == "") {
+            chosenFolderPath = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask).first!.relativePath
+        }
+        chosenFolderUrl = NSURL(string: chosenFolderPath)!
+        
         let uniqueFilename = getUniqueImageFilename()
-        let destinationURL = desktopURL.appendingPathComponent(uniqueFilename)
+        let destinationURL = chosenFolderUrl.appendingPathComponent(uniqueFilename)
         
-        if (image?.pngWrite(to: destinationURL, options: .withoutOverwriting))! {
+        if (image?.pngWrite(to: destinationURL!, options: .withoutOverwriting))! {
             print("File saved")
-            let filePath = desktopURL.appendingPathComponent(uniqueFilename).relativePath
-            return filePath
+            return destinationURL!.relativePath
         }
         return ""
     }
