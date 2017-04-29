@@ -35,7 +35,10 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
     }
     
     @IBAction func humzahClicked(_ sender: NSMenuItem){
-        
+        // todo: this should change wallpaper to a picture of Humzah
+        //let humzah = NSImage(contentsOfFile: "humzah_smiling.png")
+        let humzahPath = Bundle.main.urlForImageResource("humzah_smiling.png")
+        self.wallpaperHelper.changeWallpaper(path: (humzahPath?.relativePath)!)
     }
     
     @IBAction func preferencesClicked(_ sender: NSMenuItem) {
