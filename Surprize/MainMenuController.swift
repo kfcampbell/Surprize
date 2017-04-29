@@ -13,7 +13,6 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
     var preferencesWindow: PreferencesWindow!
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
 
-
     let constants = Constants()
     let baseApiPath = "https://source.unsplash.com/"
     var apiPath = ""
