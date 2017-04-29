@@ -8,6 +8,12 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindow" customModule="Surprize" customModuleProvider="target">
             <connections>
+                <outlet property="changeFrequencySlider" destination="2hj-e8-2Db" id="L5g-TP-Mff"/>
+                <outlet property="imageSaveLocationTextField" destination="ujP-SP-YlX" id="0Sz-HM-M5k"/>
+                <outlet property="saveImagesToDiskCheckBox" destination="sYF-DQ-tnx" id="hlF-sH-Uw4"/>
+                <outlet property="screenHeightTextField" destination="Aaw-g0-dq2" id="Su2-Vu-vVz"/>
+                <outlet property="screenWidthTextField" destination="WDj-Yb-z7l" id="szp-iL-8BC"/>
+                <outlet property="searchQueriesTextField" destination="BEC-Dy-yfh" id="WxX-uh-xns"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -32,7 +38,7 @@
                         </textFieldCell>
                     </textField>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sYF-DQ-tnx">
-                        <rect key="frame" x="172" y="347" width="165" height="28"/>
+                        <rect key="frame" x="172" y="347" width="56" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="On" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="NtR-uM-F9k">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -141,6 +147,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="selectSaveImageLocationButtonClicked:" target="-2" id="3fA-Nk-68V"/>
+                        </connections>
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-SP-YlX">
                         <rect key="frame" x="169" y="283" width="468" height="22"/>
