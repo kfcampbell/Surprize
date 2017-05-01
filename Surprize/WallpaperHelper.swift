@@ -37,8 +37,9 @@ class WallpaperHelper {
         
         let uniqueFilename = getUniqueImageFilename()
         let destinationURL = chosenFolderUrl.appendingPathComponent(uniqueFilename)
+        let finalDestinationURL = URL(string:("file://" + (destinationURL?.relativePath)!))
         
-        if (image?.pngWrite(to: destinationURL!, options: .withoutOverwriting))! {
+        if (image?.pngWrite(to: finalDestinationURL!, options: .withoutOverwriting))! {
             return destinationURL!.relativePath
         }
         return ""
