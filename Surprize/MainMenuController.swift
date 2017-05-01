@@ -56,7 +56,7 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
         let timerInterval = defaults.value(forKey: constants.changeFrequency) as! Int
         if timerInterval > 0 {
             // start the timer to change the wallpaper on a frequency basis
-            updateWallpaperTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timerInterval*60), target: self, selector: (#selector(self.changeWallpaper)), userInfo: nil, repeats: true)
+            updateWallpaperTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timerInterval*60*60), target: self, selector: (#selector(self.changeWallpaper)), userInfo: nil, repeats: true)
         }
     }
     
