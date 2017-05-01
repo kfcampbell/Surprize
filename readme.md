@@ -6,3 +6,5 @@ An menu bar app to use the Unsplash API to download a random picture and set it 
     * Make API calls asynchronously
     * detect user desktop size automatically
     * change wallpaper across external monitors
+    * automatically start app on startup
+    * package as .dmg on wiki
