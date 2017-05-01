@@ -8,3 +8,4 @@ An menu bar app to use the Unsplash API to download a random picture and set it 
     * change wallpaper across external monitors
     * automatically start app on startup
     * package as .dmg on wiki
+    * only restart timer when timer preferences actually change

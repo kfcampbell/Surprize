@@ -53,6 +53,7 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
     }
     
     func initializeTimer() {
+        updateWallpaperTimer.invalidate()
         let timerInterval = defaults.value(forKey: constants.changeFrequency) as! Int
         if timerInterval > 0 {
             // start the timer to change the wallpaper on a frequency basis
@@ -84,8 +85,6 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
     }
 
     func preferencesDidUpdate() {
-        updateWallpaperTimer.invalidate()
-        
         initializeTimer()
     }
 
