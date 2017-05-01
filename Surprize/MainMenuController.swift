@@ -17,6 +17,7 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
     let wallpaperHelper = WallpaperHelper()
     let apiHelper = ApiHelper()
     var defaults = UserDefaults.standard
+    var updateWallpaperTimer = Timer()
     
     override func awakeFromNib() {
         let icon = NSImage(named: "statusIcon")
@@ -26,9 +27,15 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
         
         preferencesWindow = PreferencesWindow()
         preferencesWindow.delegate = self
+        
+        initializeTimer()
     }
     
     @IBAction func updateClicked(_ sender: NSMenuItem) {
+        changeWallpaper()
+    }
+    
+    func changeWallpaper() {
         let apiPath = apiHelper.updateDefaultsAndReturnApiPath()
         var imageData: Data? = nil
         if apiPath != "" {
@@ -45,6 +52,14 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
         }
     }
     
+    func initializeTimer() {
+        let timerInterval = defaults.value(forKey: constants.changeFrequency) as! Int
+        if timerInterval > 0 {
+            // start the timer to change the wallpaper on a frequency basis
+            updateWallpaperTimer = Timer.scheduledTimer(timeInterval: TimeInterval(timerInterval*60), target: self, selector: (#selector(self.changeWallpaper)), userInfo: nil, repeats: true)
+        }
+    }
+    
     @IBAction func humzahClicked(_ sender: NSMenuItem){
         let humzahPath = Bundle.main.urlForImageResource("humzah_smiling.png")
         self.wallpaperHelper.changeWallpaper(path: (humzahPath?.relativePath)!)
@@ -55,6 +70,7 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
     }
     
     @IBAction func quitClicked(_ sender: NSMenuItem) {
+        updateWallpaperTimer.invalidate()
         NSApplication.shared().terminate(self)
     }
     
@@ -68,7 +84,9 @@ class MainMenuController: NSObject, PreferencesWindowDelegate {
     }
 
     func preferencesDidUpdate() {
-        // do stuff when the settings are updated. 
+        updateWallpaperTimer.invalidate()
+        
+        initializeTimer()
     }
 
 }

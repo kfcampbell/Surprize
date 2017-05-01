@@ -21,7 +21,6 @@ class WallpaperHelper {
         return (formatter.string(from: date) + ".png")
     }
     
-    // eventually this should take into account the user's preferred location
     func saveImage(data: Data) -> String {
         
         let image = NSImage(data: data)
@@ -40,7 +39,6 @@ class WallpaperHelper {
         let destinationURL = chosenFolderUrl.appendingPathComponent(uniqueFilename)
         
         if (image?.pngWrite(to: destinationURL!, options: .withoutOverwriting))! {
-            print("File saved")
             return destinationURL!.relativePath
         }
         return ""
@@ -52,6 +50,17 @@ class WallpaperHelper {
             let workspace = NSWorkspace.shared()
             if let screen = NSScreen.main()  {
                 try workspace.setDesktopImageURL(imgurl, for: screen, options: [:])
+            }
+            
+            // check constants and delete image if the setting to keep images isn't saved.
+            let defaults = UserDefaults.standard
+            
+            // it'd be cool if this was a boolean rather than an int
+            let keepImageStatus = defaults.value(forKey: constants.saveImagesToDisk) as? Int ?? 1
+            
+            if keepImageStatus < 1 {
+                let fileManager = FileManager.default
+                try fileManager.removeItem(atPath: path)
             }
         } catch {
             print(error)
