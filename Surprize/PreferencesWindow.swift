@@ -54,6 +54,7 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         super.windowDidLoad()
         
         // load all of the settings
+        // this should be a singleton
         let defaults = UserDefaults.standard
         saveImagesToDiskCheckBox.state = defaults.value(forKey: constants.saveImagesToDisk) as? Int ?? 0
         imageSaveLocationTextField.stringValue = defaults.value(forKey: constants.imageSaveLocation) as? String ?? ""
